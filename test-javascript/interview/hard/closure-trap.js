@@ -7,4 +7,4 @@ function createCounter() {
 
 const counter = createCounter(); // Call createCounter, which returns a function that increments and returns 'count'.
 console.log(counter()); // Call the returned function, which increments 'count' to 1 and logs it.
-console.log(counter()); // Call the returned function again, which increments 'count' to 2 and logs it.
+console.log(counter()); // Call the returned function again, which increments 'count' to 2 and logs it. 
