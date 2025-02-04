@@ -5,6 +5,6 @@ const obj = {
     }
 };
 
-const fn = obj.getValue;
-console.log(fn()); // undefined
+const fn = obj.getValue.bind(obj); // bind the context of obj to fn
+console.log(fn()); // 100
 console.log(obj.getValue()); // 100

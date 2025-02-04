@@ -1,5 +1,5 @@
-const obj = { name: "Hareesh" };
-Object.freeze(obj);
+const obj = { name: "Hareesh" }; // Create an object with a property 'name'
+Object.freeze(obj); // Freeze the object to prevent modifications
 
-obj.name = "Bhittam";
-console.log(obj.name);
+// obj.name = "Bhittam"; // Attempting to modify a frozen object will not work and will not throw an error in non-strict mode
+console.log(obj.name); // Output: "Hareesh" because the object is frozen and cannot be modified
