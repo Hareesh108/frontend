@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF Viewer Web Component</title>
+    <style>
+      pdf-render {
+        display: block;
+        max-width: 100%;
+        margin: 20px auto;
+      }
+      .pdf-container {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      iframe {
+        width: 100%;
+        height: 500px;
+        border: none;
+      }
+      .fullscreen-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .fullscreen-btn:hover {
+        background: rgba(0, 0, 0, 0.9);
+      }
+    </style>
+  </head>
+  <body>
+    <h2>PDF Viewer Example</h2>
+
+    <!-- Example usage with a free online PDF -->
+    <pdf-render data-src="./adrian-roselli-paris-web.pdf"></pdf-render>
+
+    <script>
+      class PDFRender extends HTMLElement {
+        constructor() {
+          super();
+        }
+
+        connectedCallback() {
+          const pdfUrl = this.getAttribute("data-src");
+
+          if (!pdfUrl) {
+            this.innerHTML =
+              "<p style='color:red;'>Error: No PDF URL provided.</p>";
+            return;
+          }
+
+          // Create container
+          const container = document.createElement("div");
+          container.classList.add("pdf-container");
+
+          // Create iframe (Native PDF rendering)
+          const iframe = document.createElement("iframe");
+          iframe.setAttribute("src", pdfUrl);
+          iframe.setAttribute("loading", "lazy");
+
+          // Fullscreen button
+          const fullscreenBtn = document.createElement("button");
+          fullscreenBtn.innerText = "Fullscreen";
+          fullscreenBtn.classList.add("fullscreen-btn");
+
+          // Handle fullscreen toggle
+          fullscreenBtn.addEventListener("click", () => {
+            if (iframe.requestFullscreen) {
+              iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) {
+              iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) {
+              iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) {
+              iframe.msRequestFullscreen();
+            }
+          });
+
+          // Append elements
+          container.appendChild(iframe);
+          container.appendChild(fullscreenBtn);
+          this.appendChild(container);
+        }
+      }
+
+      customElements.define("pdf-render", PDFRender);
+    </script>
+  </body>
+</html>
