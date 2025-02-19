@@ -25,7 +25,13 @@ export default async function Page({ params }: { params: { id: string } }) {
       </div>
     );
   } catch (error) {
-    console.error(error);
+    console.log("///////////////////////////////////////////////////");
+
+    if (axios.isAxiosError(error) && error.response) {
+      console.error(error.response.status);
+    } else {
+      console.error(error);
+    }
     notFound();
   }
 }
