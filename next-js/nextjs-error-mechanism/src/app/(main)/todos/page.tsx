@@ -39,8 +39,9 @@ export default function Home() {
           <div key={todo?.id}>
             <li key={todo?.id}>{todo?.title}</li>
             <button
-              // onClick={() => router.push(`/todos/${todo.id}`)}
-              onClick={() => router.push(`/todos/hed`)}
+              onClick={() => router.push(`/todos/${todo.id}`)}
+              // To check not found you can un comment below line
+              // onClick={() => router.push(`/todos/hed`)}
               className="border-4 p-2 rounded-lg"
             >
               Go to Todo
