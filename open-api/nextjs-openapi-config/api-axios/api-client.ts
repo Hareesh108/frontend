@@ -17,17 +17,22 @@ apiClient.interceptors.request.use(
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+
+    if (config.headers) {
+      delete config.headers["User-Agent"];
+    }
+
     return config;
   },
   (error) => Promise.reject(error)
 );
 
-apiClient.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    console.error("API Error:", error);
-    return Promise.reject(error);
-  }
-);
+// apiClient.interceptors.response.use(
+//   (response) => response,
+//   (error) => {
+//     console.error("API Error:", error);
+//     return Promise.reject(error);
+//   }
+// );
 
 export default apiClient;

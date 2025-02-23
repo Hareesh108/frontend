@@ -17,5 +17,18 @@ export default function Home() {
     fetchUsers();
   }, []);
 
+  // async function fetchUsers1() {
+  //   try {
+  //     const response = await backofficeApi1.listAccounts(); // Type-safe API call
+  //     console.log("Users:", response);
+  //   } catch (error) {
+  //     console.log("Failed to fetch users", error);
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   fetchUsers1();
+  // }, []);
+
   return <div className="text-center pt-5 font-bold">Hello, There!</div>;
 }
