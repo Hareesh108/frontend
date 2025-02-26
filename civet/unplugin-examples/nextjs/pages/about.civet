@@ -1,0 +1,5 @@
+{ Button } from '../components/button.civet'
+
+export default function About()
+  <h1>About
+  <Button>
