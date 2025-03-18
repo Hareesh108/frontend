@@ -122,8 +122,8 @@ const promise1 = MyPromise((resolve, reject) => {
 });
 
 promise1.then(
-    result => console.log('Then success:', result),
-    error => console.log('Then error:', error)
+    result => console.log('Promise 01: Then success:', result),
+    error => console.log('Promise 01: Then error:', error)
 );
 
 console.log('\n=== Test Case 2: Promise with rejection and catch() ===');
@@ -133,11 +133,11 @@ const promise2 = MyPromise((resolve, reject) => {
     }, 1500);
 });
 
-promise2.catch(error => console.log('Catch error:', error));
+promise2.catch(error => console.log('Promise 02: Catch error:', error));
 
 console.log('\n=== Test Case 3: MyPromise.resolve() ===');
 MyPromise.resolve('Immediate resolve')
-    .then(result => console.log('Resolve result:', result));
+    .then(result => console.log('Promise 03: Resolve result:', result));
 
 console.log('\n=== Test Case 4: Promise chaining ===');
 MyPromise(resolve => {
