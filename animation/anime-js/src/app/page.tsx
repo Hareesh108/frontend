@@ -6,8 +6,8 @@ export default function Page() {
   return (
     <>
       <Timer />
-      {/* <BouncyText /> */}
-      {/* <Timeline /> */}
+      <BouncyText />
+      <Timeline />
     </>
   );
 }
