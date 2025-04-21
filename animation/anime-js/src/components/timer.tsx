@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { createTimer, utils } from "animejs";
+import { createTimer } from "animejs";
 
 export default function Timer() {
   const timeRef = useRef<HTMLSpanElement>(null);
