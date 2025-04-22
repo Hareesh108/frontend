@@ -3,6 +3,7 @@ import Lerpe from "@/components/lerpe";
 import Stagger from "@/components/stagger";
 import Timeline from "@/components/timeline";
 import Timer from "@/components/timer";
+import TimerToggle from "@/components/timer-togger";
 
 export default function Page() {
   return (
@@ -12,6 +13,7 @@ export default function Page() {
       <Timeline />
       <Stagger />
       <Lerpe />
+      <TimerToggle />
     </>
   );
 }
