@@ -1,5 +1,6 @@
 import BouncyText from "@/components/bouncy";
 import Lerpe from "@/components/lerpe";
+import ScopeClickAnimator from "@/components/scope";
 import Stagger from "@/components/stagger";
 import Timeline from "@/components/timeline";
 import Timer from "@/components/timer";
@@ -14,6 +15,7 @@ export default function Page() {
       <Stagger />
       <Lerpe />
       <TimerToggle />
+      <ScopeClickAnimator />
     </>
   );
 }
