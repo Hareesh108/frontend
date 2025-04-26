@@ -1,6 +1,9 @@
 # Node.js Under the Hood
 
 ![Node.js Architecture](./images/node-architecture.png)
+![Execution](./images/execution.png)
+![Execution](./images/execution1.png)
+![Execution](./images/execution2.png)
 
 This diagram illustrates the core components of Node.js architecture and how they interact with each other.
 
