@@ -64,10 +64,10 @@ The event loop phases in order:
 
 > Note: Understanding these internals helps in writing more efficient Node.js applications.
 
-![Node.js Architecture](./images/node-architecture.png)
 ![Execution](./images/execution.png)
 ![Execution](./images/execution1.png)
 ![Execution](./images/execution2.png)
+![Node.js Architecture](./images/node-architecture.png)
 
 This diagram illustrates the core components of Node.js architecture and how they interact with each other.
 
