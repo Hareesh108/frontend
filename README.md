@@ -22,3 +22,7 @@ This repository serves as:
 - Improve your Frontend Development Skills: <https://uvaiscodes.blogspot.com/2024/11/frontend-development.html?ref=dailydev>
 - Open Source Tools You Can Self-Host: <https://dly.to/h2is24bBlC7>
 - Check all open source alternatives: <https://alternativeoss.com/>
+
+## Javascript Performance
+
+- There are a lot of ways to break up long tasks in JavaScript. <https://macarthur.me/posts/long-tasks/>
