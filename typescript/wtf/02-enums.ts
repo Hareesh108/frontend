@@ -28,4 +28,4 @@ function validateStatusString(status: StatusString) {
 
 validateStatusString(StatusString.DECLINED)
 
-validateStatusString("Declined") // wont work
+// validateStatusString("Declined") // wont work
