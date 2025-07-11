@@ -10,5 +10,12 @@ const person:Person = {
     ...{hey:"jh"}
 }
 
+const person1 = {
+    name:"harsh",
+    age:20,
+    hey:"dkjl"
+}
+
 
 logPerson(person)
+logPerson(person1)
