@@ -47,3 +47,44 @@ function area(shape: Shape): number {
             return _exhaustive;
     }
 }
+
+/**
+ * 6. Type Inference in Template String Types (TypeScript 4.1+)
+ * Enables extracting parts of string literals using infer in template literal types.
+ */
+type ExtractEvent<T> = T extends `on${infer Name}Event` ? Name : never;
+type ClickName = ExtractEvent<"onClickEvent">; // "Click"
+
+/**
+ * 7. Using 'as const' for Narrowed Types (TypeScript 3.4+)
+ * The 'as const' assertion makes objects and arrays deeply immutable and infers literal types.
+ */
+const directions = ["up", "down", "left", "right"] as const;
+type Direction = typeof directions[number]; // "up" | "down" | "left" | "right"
+
+/**
+ * 8. Using 'unknown' Type for Safer APIs (TypeScript 3.0+)
+ * 'unknown' is a safer alternative to 'any', forcing type checks before usage.
+ */
+function handleValue(val: unknown) {
+    if (typeof val === "string") {
+        console.log(val.toUpperCase());
+    }
+}
+
+/**
+ * 9. Mapped Types with Key Remapping (TypeScript 4.1+)
+ * Allows you to remap keys in mapped types using 'as'.
+ */
+type PrefixKeys<T> = {
+    [K in keyof T as `prefix_${string & K}`]: T[K]
+};
+type Prefixed = PrefixKeys<{ foo: number; bar: string }>; // { prefix_foo: number; prefix_bar: string }
+
+/**
+ * 10. Using 'infer' in Conditional Types for Advanced Type Manipulation
+ * 'infer' lets you introduce a type variable to be inferred in conditional types.
+ */
+type ElementType<T> = T extends (infer U)[] ? U : T;
+type NumberType = ElementType<number[]>; // number
+type StringType = ElementType<string>;   // string
