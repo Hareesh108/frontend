@@ -5,6 +5,9 @@
 type EventName = `on${Capitalize<string>}Event`;
 const eventName: EventName = "onClickEvent"; // Valid
 
+console.log("eventName:",eventName);
+
+
 /**
  * 2. Variadic Tuple Types
  * Enables tuples to have a variable number of elements, useful for functions like currying.
