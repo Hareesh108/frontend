@@ -1,0 +1,16 @@
+{
+  "name": "unify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "unify-js test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@hareesh108/unify-js": "^0.1.2"
+  }
+}
