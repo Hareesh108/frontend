@@ -11,6 +11,6 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "@hareesh108/unify-js": "^0.1.2"
+    "@hareesh108/unify-js": "^0.1.4"
   }
 }
