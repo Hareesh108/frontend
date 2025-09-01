@@ -1,0 +1,15 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "typecheck": "unify-js myProgram.js"
+  },
+  "devDependencies": {
+    "@hareesh108/unify-js": "^1.0.0"
+  }
+}
