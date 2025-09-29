@@ -1,52 +1,73 @@
-# WebSocket Keep-Alive: Ping/Pong Explained
+# SSE Keep-Alive: Comments & Heartbeats Explained
 
-WebSockets, unlike plain TCP, have their **own keep-alive mechanism**:  
-the **PING** and **PONG** control frames.
+**Server-Sent Events (SSE)** run over plain HTTP and keep a **long-lived connection** open from **server → client**.
+Since intermediaries (proxies, load balancers) may close idle connections, SSE needs its own **keep-alive strategy**.
 
 ---
 
 ## 🔹 Why Not Just Rely on TCP Keep-Alive?
 
-- **TCP keep-alive** only ensures the health of the underlying TCP connection.  
-- But WebSocket connections can traverse **intermediaries** like:
-  - Proxies  
-  - Load balancers  
-  - Gateways  
+* **TCP keep-alive** ensures the transport is alive, but:
 
-These intermediaries may terminate idle TCP sessions.  
-So, relying solely on TCP keep-alive isn't always enough.
+  * HTTP intermediaries often **terminate idle connections**.
+  * Without traffic, SSE connections may silently die.
+
+So, the application must send **periodic messages** to keep the stream alive.
 
 ---
 
-## 🔹 How WebSocket Keep-Alive Works
+## 🔹 How SSE Keep-Alive Works
 
-- **PING frame** → Sent by one peer to check if the other peer is still responsive.  
-- **PONG frame** → Automatically sent back in response to a `PING`.  
+* SSE uses **text-based events** sent over `text/event-stream`.
+* To keep the connection alive, the server periodically sends:
 
-✨ Both `PING` and `PONG` frames can carry **optional application data**, although they are usually kept small.
+  1. **Comment lines** → Start with `:` (ignored by client).
+
+     ```txt
+     : keep-alive
+     ```
+  2. **Heartbeat events** → Regular `event:`/`data:` messages.
+
+     ```txt
+     event: ping
+     data: 💓
+     ```
+
+The browser’s **`EventSource`** API will treat these as normal SSE events (or ignore comments).
 
 ---
 
-## 🔹 Benefits of WebSocket Ping/Pong
+## 🔹 Benefits of SSE Keep-Alive
 
-1. ✅ Keeps the WebSocket connection active.  
-2. ✅ Detects broken or unresponsive peers.  
-3. ✅ Refreshes idle intermediary TCP connections (important when crossing proxies).  
+1. ✅ Prevents proxies/load balancers from closing idle streams.
+2. ✅ Allows the server to detect client disconnects (when a write fails).
+3. ✅ Ensures the client receives a continuous stream (no silent drop).
 
 ---
 
-## 🔹 Debugging with Wireshark
+## 🔹 Debugging with curl or Browser DevTools
 
-If the WebSocket traffic is over **TLS (wss://)**, you can still inspect `PING` and `PONG` frames using Wireshark by decrypting the traffic:
+* SSE is just **plain text over HTTP**, so you can debug easily:
 
-1. Set the `SSLKEYLOGFILE` environment variable in Chrome or Firefox.  
-2. Point Wireshark to this key log file.  
-3. Wireshark can then decrypt TLS and show WebSocket frames, including `PING` and `PONG`.
+```bash
+curl -N http://localhost:3000/events
+```
+
+You’ll see events (and heartbeats) in real time.
+
+In browsers, open **DevTools → Network → EventStream** to inspect messages.
 
 ---
 
 ## 🔹 Example Flow
 
 ```txt
-Client → Server : PING (heartbeat)
-Server → Client : PONG (response)
+Server → Client : data: { "msg": "Hello" }
+
+Server → Client : : keep-alive      (comment, ignored by client)
+
+Server → Client : event: ping
+                  data: heartbeat   (custom event)
+
+Client (EventSource) → automatically reconnects if connection drops
+```
