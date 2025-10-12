@@ -6,6 +6,7 @@ export default function App() {
   return (
     <div style={{ padding: 20, fontFamily: "system-ui" }}>
       <h1>React 19.2 Playground</h1>
+      <h1>This are the examples of the react 19.2 version update</h1>
 
       <section>
         <h2>&lt;Activity /&gt; demo</h2>
