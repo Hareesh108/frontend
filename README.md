@@ -11,6 +11,7 @@ This repository serves as:
 - A resource hub for frontend concepts and best practices
 - A showcase of my growing skills in web development
 
+
 ## 🛠 Technologies Covered
 
 - HTML5
