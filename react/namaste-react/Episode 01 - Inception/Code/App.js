@@ -32,15 +32,15 @@ const parent = React.createElement('div', { id: 'parent' }, [
 
 console.log(parent);
 
-// const heading = React.createElement(
-//   'h1',
-//   { id: 'heading', className: 'head' },
-//   'Hello World from React!'
-// ); // It's the job of Core React to create an element i.e, heading in this case
+const heading = React.createElement(
+  'h1',
+  { id: 'heading', className: 'head' },
+  'Hello World from React!'
+); // It's the job of Core React to create an element i.e, heading in this case
 
 // React Element is normal JavaScript Object{}
 
-// console.log(heading); // object
+console.log(heading); // object
 
 const root = ReactDOM.createRoot(document.getElementById('root')); // It's the job of ReactDOM to create root i.e, heading in this case, bcz root is a dom element which is rendered to be on browser. This root is the place where all React code will run.
 
