@@ -3,7 +3,7 @@ import { useFormState} from 'react-dom';
 const FormState = () => {
     const submitForm = (prevState, queryData) => {
         const name =  queryData.get("username");
-        console.log(prevState); // previous form state
+        console.log(prevState)
         if(name === 'john'){
             return {
                 success: true,
@@ -18,6 +18,7 @@ const FormState = () => {
         }
     }
     const [ message, formAction ] = useFormState(submitForm, null)
+
     return <>
     <h3>useFormState() example</h3>
     <form action={formAction} className='my-3'>
