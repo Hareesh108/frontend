@@ -1,0 +1,34 @@
+𝐮𝐧𝐝𝐞𝐟𝐢𝐧𝐞𝐝 𝐯𝐬. 𝐮𝐧𝐝𝐞𝐜𝐥𝐚𝐫𝐞𝐝 𝐯𝐬. 𝐮𝐧𝐢𝐧𝐢𝐭𝐢𝐚𝐥𝐢𝐳𝐞𝐝 (𝐓𝐃𝐙) 𝐢𝐧 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 — 𝐞𝐯𝐞𝐫𝐲𝐭𝐡𝐢𝐧𝐠 𝐲𝐨𝐮 𝐧𝐞𝐞𝐝 𝐭𝐨 𝐤𝐧𝐨𝐰
+
+• 𝐮𝐧𝐝𝐞𝐟𝐢𝐧𝐞𝐝
+  Variable exists, but currently has no value
+  Common with declared variables that were never assigned
+
+• 𝐮𝐧𝐝𝐞𝐜𝐥𝐚𝐫𝐞𝐝
+  Variable does not exist in any accessible scope
+  Accessing it throws an error
+  typeof is the only exception (returns "undefined")
+
+• Why this is confusing
+  JavaScript treats undeclared variables as "undefined" when using typeof
+  This is a historical design quirk
+
+• 𝐮𝐧𝐢𝐧𝐢𝐭𝐢𝐚𝐥𝐢𝐳𝐞𝐝 (𝐚𝐤𝐚 𝐓𝐃𝐙)
+  Introduced with let and const (ES6)
+  Variable exists, but cannot be accessed yet
+
+• TDZ is NOT undefined
+  Accessing a TDZ variable immediately throws an error
+  It is completely off-limits until initialized
+
+• Three kinds of “𝐞𝐦𝐩𝐭𝐢𝐧𝐞𝐬𝐬” in JavaScript
+– undeclared → never created
+– undefined → created, but no value
+– uninitialized (TDZ) → created, but inaccessible
+
+𝐑𝐮𝐥𝐞:
+👉 𝐓𝐡𝐞𝐬𝐞 𝐚𝐫𝐞 𝐍𝐎𝐓 𝐬𝐲𝐧𝐨𝐧𝐲𝐦𝐬 — 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 𝐭𝐫𝐞𝐚𝐭𝐬 𝐭𝐡𝐞𝐦 𝐯𝐞𝐫𝐲 𝐝𝐢𝐟𝐟𝐞𝐫𝐞𝐧𝐭𝐥𝐲.
+
+Follow for more JavaScript internals and edge cases.
+
+#JavaScript #Scopes #TDZ #Frontend #CleanCode #YouDontKnowJS
