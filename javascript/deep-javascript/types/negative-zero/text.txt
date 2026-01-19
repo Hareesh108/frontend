@@ -29,4 +29,6 @@
 𝐑𝐮𝐥𝐞:
 👉 𝐔𝐬𝐞 𝐎𝐛𝐣𝐞𝐜𝐭.𝐢𝐬(𝐯𝐚𝐥𝐮𝐞, -𝟎) 𝐰𝐡𝐞𝐧 𝐳𝐞𝐫𝐨’𝐬 𝐝𝐢𝐫𝐞𝐜𝐭𝐢𝐨𝐧 𝐦𝐚𝐭𝐭𝐞𝐫𝐬.
 
+Follow for more JavaScript internals and edge cases.
+
 #JavaScript #NegativeZero #Frontend #WebDevelopment #CleanCode
