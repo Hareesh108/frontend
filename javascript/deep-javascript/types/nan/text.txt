@@ -1,0 +1,23 @@
+𝐍𝐚𝐍 𝐢𝐧 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 — 𝐞𝐯𝐞𝐫𝐲𝐭𝐡𝐢𝐧𝐠 𝐲𝐨𝐮 𝐧𝐞𝐞𝐝 𝐭𝐨 𝐤𝐧𝐨𝐰
+
+• NaN means Invalid Number (Not-A-Number), but
+ typeof NaN === "number"
+
+• NaN is not equal to itself
+ NaN === NaN // false
+
+• Numeric operations can produce NaN
+ "my son's age" - 1 // NaN
+
+• isNaN() coerces values before checking
+ isNaN("My son") // true ❌
+
+• Number.isNaN() does NOT coerce (safe check)
+ Number.isNaN("My son") // false
+ Number.isNaN(NaN) // true ✅
+
+𝐑𝐮𝐥𝐞: 𝐀𝐥𝐰𝐚𝐲𝐬 𝐮𝐬𝐞 𝐍𝐮𝐦𝐛𝐞𝐫.𝐢𝐬𝐍𝐚𝐍().
+
+Read more here: https://lnkd.in/dyffzhXb
+
+hashtag#JavaScript hashtag#NaN hashtag#Frontend hashtag#WebDevelopment hashtag#CleanCode
