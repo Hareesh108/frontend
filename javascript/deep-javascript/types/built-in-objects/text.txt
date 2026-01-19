@@ -1,0 +1,43 @@
+𝐔𝐬𝐢𝐧𝐠 𝐧𝐞𝐰 𝐢𝐧 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 — 𝐰𝐡𝐞𝐧 𝐭𝐨 𝐮𝐬𝐞 𝐢𝐭 𝐚𝐧𝐝 𝐰𝐡𝐞𝐧 𝐧𝐨𝐭 𝐭𝐨
+
+• JavaScript has fundamental objects
+  - (formerly called built-in or native objects)
+
+• These are NOT primitive types
+They are object representations layered on top of primitives
+
+• Use new with these fundamental objects
+– 𝐎𝐛𝐣𝐞𝐜𝐭
+– 𝐀𝐫𝐫𝐚𝐲
+– 𝐅𝐮𝐧𝐜𝐭𝐢𝐨𝐧
+– 𝐃𝐚𝐭𝐞
+– 𝐑𝐞𝐠𝐄𝐱𝐩
+– 𝐄𝐫𝐫𝐨𝐫
+
+• Date is the most important case
+  - There is no date literal in JavaScript
+  - Creating dates requires new Date
+
+• Do NOT use new with these
+– 𝐒𝐭𝐫𝐢𝐧𝐠
+– 𝐍𝐮𝐦𝐛𝐞𝐫
+– 𝐁𝐨𝐨𝐥𝐞𝐚𝐧
+
+• Why you should avoid new String / Number / Boolean
+  - They create object wrappers instead of primitives
+  - This leads to confusing behavior and bugs
+
+• These should be used as functions, not constructors
+  - They are best used for type coercion, not object creation
+
+• Example use case
+  - Converting values (like JSON data) into strings or numbers
+  - This is where String, Number, and Boolean shine
+
+𝐑𝐮𝐥𝐞:
+👉 𝐔𝐬𝐞 𝐧𝐞𝐰 𝐨𝐧𝐥𝐲 𝐟𝐨𝐫 𝐟𝐮𝐧𝐝𝐚𝐦𝐞𝐧𝐭𝐚𝐥 𝐨𝐛𝐣𝐞𝐜𝐭𝐬 (𝐎𝐛𝐣𝐞𝐜𝐭, 𝐀𝐫𝐫𝐚𝐲, 𝐃𝐚𝐭𝐞, 𝐞𝐭𝐜.)
+👉 𝐔𝐬𝐞 𝐒𝐭𝐫𝐢𝐧𝐠, 𝐍𝐮𝐦𝐛𝐞𝐫, 𝐚𝐧𝐝 𝐁𝐨𝐨𝐥𝐞𝐚𝐧 𝐰𝐢𝐭𝐡𝐨𝐮𝐭 𝐧𝐞𝐰 𝐟𝐨𝐫 𝐜𝐨𝐞𝐫𝐜𝐢𝐨𝐧
+
+Follow for more JavaScript internals and edge cases.
+
+#JavaScript #Fundamentals #CleanCode #Frontend #YouDontKnowJS
