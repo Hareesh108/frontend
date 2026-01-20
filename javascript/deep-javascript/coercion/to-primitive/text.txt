@@ -1,0 +1,57 @@
+𝐀𝐛𝐬𝐭𝐫𝐚𝐜𝐭 𝐎𝐩𝐞𝐫𝐚𝐭𝐢𝐨𝐧𝐬 𝐢𝐧 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 — 𝐓𝐨𝐏𝐫𝐢𝐦𝐢𝐭𝐢𝐯𝐞 𝐞𝐱𝐩𝐥𝐚𝐢𝐧𝐞𝐝
+
+• Abstract operations are spec-level concepts
+  - They are not real JavaScript functions
+  - They describe how the language behaves internally
+
+• JavaScript calls type conversion coercion
+  - Conversion and coercion mean the same thing in JS
+
+• ToPrimitive is the most important abstract operation
+  - It runs whenever a non-primitive must become a primitive
+
+• ToPrimitive applies to all non-primitives
+  - Objects, arrays, functions, dates, etc.
+
+• ToPrimitive accepts an optional hint
+– number
+– string
+– or no hint
+
+• The hint depends on usage
+  - Math operations request a number
+  - String operations request a string
+
+• The hint is a preference, not a guarantee
+  - JavaScript will try its best, but may return a different primitive
+
+• ToPrimitive works by consulting two methods
+– valueOf
+– toString
+
+• If the hint is number
+  - valueOf is tried first
+  - If it doesn’t return a primitive, toString is tried
+
+• If the hint is string
+  - toString is tried first
+  - Then valueOf is tried
+
+• If neither method returns a primitive
+  - JavaScript throws an error
+
+• These algorithms are recursive
+  - If the result is still not a primitive, the process repeats
+
+• This behavior explains many “weird” coercion results
+  - Especially in math, concatenation, and equality checks
+
+• Anytime a non-primitive is used where a primitive is required
+  - ToPrimitive is happening behind the scenes
+
+𝐑𝐮𝐥𝐞:
+👉 𝐖𝐡𝐞𝐧 𝐜𝐨𝐞𝐫𝐜𝐢𝐨𝐧 𝐬𝐮𝐫𝐩𝐫𝐢𝐬𝐞𝐬 𝐲𝐨𝐮, 𝐭𝐡𝐢𝐧𝐤 𝐓𝐨𝐏𝐫𝐢𝐦𝐢𝐭𝐢𝐯𝐞 → 𝐯𝐚𝐥𝐮𝐞𝐎𝐟 → 𝐭𝐨𝐒𝐭𝐫𝐢𝐧𝐠
+
+Follow for more JavaScript internals and edge cases.
+
+#JavaScript #Coercion #ToPrimitive #CleanCode #Frontend #YouDontKnowJS
