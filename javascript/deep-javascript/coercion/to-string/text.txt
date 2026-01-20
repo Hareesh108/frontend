@@ -1,0 +1,53 @@
+𝐀𝐛𝐬𝐭𝐫𝐚𝐜𝐭 𝐎𝐩𝐞𝐫𝐚𝐭𝐢𝐨𝐧𝐬 𝐢𝐧 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 — 𝐓𝐨𝐒𝐭𝐫𝐢𝐧𝐠 𝐞𝐱𝐩𝐥𝐚𝐢𝐧𝐞𝐝
+
+• ToString is an abstract operation
+It describes how JavaScript converts any value into a string
+It exists in the spec, not as a callable function
+
+• Almost every value has a string representation
+null, undefined, booleans, numbers — all become strings
+
+• Negative zero is a corner case
+ToString hides the sign and produces "0"
+
+• When ToString is applied to non-primitives
+JavaScript first runs ToPrimitive with a string hint
+
+• Arrays have a built-in ToString behavior
+Brackets are removed
+Elements are joined with commas
+
+• Empty arrays become an empty string
+This makes it impossible to distinguish from other empty outputs
+
+• null and undefined inside arrays are skipped
+Their positions exist, but their values disappear
+This is one of the strangest inconsistencies in JavaScript
+
+• Array stringification is unreliable for program logic
+It may look useful in the console
+But it has too many corner cases for real code
+
+• Objects default to a generic string
+The famous “[object Object]”
+
+• That output comes from the object’s string tag
+The default tag is “Object”
+
+• The string tag can be customized
+ES6 allows overriding it using a symbol
+
+• You can also override toString itself
+This gives full control over how an object is represented as a string
+
+• Custom ToString logic is useful for debugging
+Especially in dev tools
+But rarely recommended for application logic
+
+𝐑𝐮𝐥𝐞:
+👉 𝐖𝐡𝐞𝐧 𝐬𝐨𝐦𝐞𝐭𝐡𝐢𝐧𝐠 𝐛𝐞𝐜𝐨𝐦𝐞𝐬 𝐚 𝐬𝐭𝐫𝐢𝐧𝐠 𝐮𝐧𝐞𝐱𝐩𝐞𝐜𝐭𝐞𝐝𝐥𝐲, 𝐓𝐨𝐒𝐭𝐫𝐢𝐧𝐠 𝐢𝐬 𝐢𝐧𝐯𝐨𝐥𝐯𝐞𝐝
+👉 𝐀𝐫𝐫𝐚𝐲𝐬 𝐚𝐧𝐝 𝐨𝐛𝐣𝐞𝐜𝐭𝐬 𝐬𝐭𝐫𝐢𝐧𝐠𝐢𝐟𝐲 𝐝𝐢𝐟𝐟𝐞𝐫𝐞𝐧𝐭𝐥𝐲 — 𝐚𝐧𝐝 𝐢𝐧𝐜𝐨𝐧𝐬𝐢𝐬𝐭𝐞𝐧𝐭𝐥𝐲
+
+Follow for more JavaScript internals and edge cases.
+
+#JavaScript #Coercion #ToString #Frontend #CleanCode #YouDontKnowJS
