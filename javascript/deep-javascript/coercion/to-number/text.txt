@@ -1,0 +1,57 @@
+𝐀𝐛𝐬𝐭𝐫𝐚𝐜𝐭 𝐎𝐩𝐞𝐫𝐚𝐭𝐢𝐨𝐧𝐬 𝐢𝐧 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 — 𝐓𝐨𝐍𝐮𝐦𝐛𝐞𝐫 𝐞𝐱𝐩𝐥𝐚𝐢𝐧𝐞𝐝
+
+• ToNumber runs whenever JavaScript needs a numeric value
+  - Math operations, comparisons, arithmetic, etc.
+
+• Strings → numbers (mostly sensible)
+  - "0" → 0
+  - "-0" → -0
+  - "009" → 9
+  - "3.14159" → 3.14159
+  - "0xaf" → 175 (hex)
+
+• Empty string is the real troublemaker
+  - "" → 0
+  - This is the root of many coercion bugs
+
+• Some strings still fail
+  - "." → NaN
+  - Non-numeric strings → NaN
+
+• Booleans → numbers
+  - false → 0
+  - true → 1
+  - (historical decision, but debatable)
+
+• null vs undefined
+  - null → 0
+  - undefined → NaN
+  - (inconsistent, but real)
+
+• Non-primitives trigger ToPrimitive first
+  - ToNumber → ToPrimitive (number hint)
+
+• Objects & arrays
+  - valueOf usually returns the object itself
+  - JavaScript then falls back to toString
+
+• Arrays become strings first
+  - [] → "" → 0
+  - [0] → "0" → 0
+  - [null] → "" → 0
+  - [undefined] → "" → 0
+  - [1,2] → "1,2" → NaN
+
+• Objects usually become NaN
+  - "[object Object]" is not a valid number
+
+• valueOf can override everything
+  - If valueOf returns a primitive number, that’s the result
+
+𝐑𝐮𝐥𝐞:
+👉 𝐓𝐨𝐍𝐮𝐦𝐛𝐞𝐫 = 𝐓𝐨𝐏𝐫𝐢𝐦𝐢𝐭𝐢𝐯𝐞 → 𝐯𝐚𝐥𝐮𝐞𝐎𝐟 → 𝐭𝐨𝐒𝐭𝐫𝐢𝐧𝐠 → 𝐍𝐮𝐦𝐛𝐞𝐫
+👉 𝐈𝐟 𝐬𝐨𝐦𝐞𝐭𝐡𝐢𝐧𝐠 𝐮𝐧𝐞𝐱𝐩𝐞𝐜𝐭𝐞𝐝𝐥𝐲 𝐛𝐞𝐜𝐨𝐦𝐞𝐬 𝟎 𝐨𝐫 𝐍𝐚𝐍, 𝐜𝐨𝐞𝐫𝐜𝐢𝐨𝐧 𝐢𝐬 𝐢𝐧𝐯𝐨𝐥𝐯𝐞𝐝.
+
+Follow for more JavaScript internals and edge cases.
+
+#JavaScript #Coercion #ToNumber #CleanCode #Frontend #YouDontKnowJS
