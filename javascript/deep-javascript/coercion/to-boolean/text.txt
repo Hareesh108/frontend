@@ -1,0 +1,45 @@
+𝐀𝐛𝐬𝐭𝐫𝐚𝐜𝐭 𝐎𝐩𝐞𝐫𝐚𝐭𝐢𝐨𝐧𝐬 𝐢𝐧 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 — 𝐓𝐨𝐁𝐨𝐨𝐥𝐞𝐚𝐧 𝐞𝐱𝐩𝐥𝐚𝐢𝐧𝐞𝐝
+
+• ToBoolean runs whenever a value is used where a Boolean is required
+  - if statements, logical operators, loops, etc.
+
+• ToBoolean is not algorithmic
+  - It does NOT call ToPrimitive, ToString, or ToNumber
+  - It is a simple lookup
+
+• JavaScript has a very small falsy list
+– empty string ""
+– 0 and -0
+– null
+– NaN
+– false
+– undefined
+
+• If a value is on this list → false
+• If it is NOT on this list → true
+
+• Everything else is truthy
+  - Non-empty strings
+  - Non-zero numbers
+  - Objects
+  - Arrays
+  - Functions
+
+• Common misconception
+  - Empty array is truthy
+  - Empty object is truthy
+
+• ToBoolean cannot be overridden
+  - valueOf and toString are ignored
+  - There is no coercion chain
+
+• ToBoolean is predictable
+  - Memorize the falsy list
+  - Everything else is truthy
+
+𝐑𝐮𝐥𝐞:
+👉 𝐈𝐟 𝐢𝐭’𝐬 𝐧𝐨𝐭 𝐨𝐧 𝐭𝐡𝐞 𝐟𝐚𝐥𝐬𝐲 𝐥𝐢𝐬𝐭, 𝐢𝐭’𝐬 𝐭𝐫𝐮𝐭𝐡𝐲.
+
+Follow for more JavaScript internals and edge cases.
+
+#JavaScript #Coercion #ToBoolean #CleanCode #Frontend #YouDontKnowJS

@@ -1,0 +1,46 @@
+𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 𝐂𝐨𝐞𝐫𝐜𝐢𝐨𝐧 — 𝐁𝐨𝐱𝐢𝐧𝐠 𝐞𝐱𝐩𝐥𝐚𝐢𝐧𝐞𝐝
+
+• JavaScript lets you access properties on primitive values
+  - Example: string length, number methods, boolean methods
+
+• Primitives are not objects
+  - string, number, boolean are primitive types
+
+• So how does "hello".length work?  - 
+
+• This behavior is called boxing
+  - JavaScript temporarily wraps a primitive in its object counterpart
+
+• Boxing is an implicit coercion
+  - Primitive → Object (only for the operation)
+
+• JavaScript does this automatically
+  - You never see or manage the wrapper object
+
+• After the operation, the object is discarded
+  - The value remains a primitive
+
+• 𝐓𝐡𝐢𝐬 𝐢𝐬 𝐰𝐡𝐲 𝐩𝐞𝐨𝐩𝐥𝐞 𝐭𝐡𝐢𝐧𝐤 “𝐞𝐯𝐞𝐫𝐲𝐭𝐡𝐢𝐧𝐠 𝐢𝐬 𝐚𝐧 𝐨𝐛𝐣𝐞𝐜𝐭”
+  - Things can behave like objects
+  - That doesn’t mean they are objects
+
+• Boxing exists for developer ergonomics
+  - Without it, accessing properties on primitives would throw errors
+
+• Boxing happens with:
+– strings
+– numbers
+– booleans
+
+• Boxing does NOT change the original value
+  - It only enables property and method access
+
+• This is one of JavaScript’s quiet superpowers
+  - Powerful, convenient, and easy to miss
+
+𝐑𝐮𝐥𝐞:
+👉 𝐏𝐫𝐢𝐦𝐢𝐭𝐢𝐯𝐞𝐬 𝐚𝐫𝐞𝐧’𝐭 𝐨𝐛𝐣𝐞𝐜𝐭𝐬 — 𝐭𝐡𝐞𝐲 𝐣𝐮𝐬𝐭 𝐚𝐜𝐭 𝐥𝐢𝐤𝐞 𝐨𝐧𝐞 𝐛𝐫𝐢𝐞𝐟𝐥𝐲.
+
+Follow for more JavaScript internals and coercion deep dives.
+
+#JavaScript #Coercion #Boxing #Frontend #CleanCode #YouDontKnowJS

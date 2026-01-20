@@ -28,7 +28,7 @@ They are object representations layered on top of primitives
   - This leads to confusing behavior and bugs
 
 • These should be used as functions, not constructors
-  - They are best used for type coercion, not object creation
+• They are best used for type coercion, not object creation
 
 • Example use case
   - Converting values (like JSON data) into strings or numbers
