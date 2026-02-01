@@ -1,4 +1,4 @@
-𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 𝐂𝐨𝐞𝐫𝐜𝐢𝐨𝐧 — 𝐁𝐨𝐱𝐢𝐧𝐠 𝐞𝐱𝐩𝐥𝐚𝐢𝐧𝐞𝐝
+𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 𝐂𝐨𝐞𝐫𝐜𝐢𝐨𝐧 — 𝐁𝐨𝐱𝐢𝐧𝐠 𝐞𝐱𝐩𝐥𝐚𝐢𝐧𝐞𝐝 =
 
 • JavaScript lets you access properties on primitive values
   - Example: string length, number methods, boolean methods
