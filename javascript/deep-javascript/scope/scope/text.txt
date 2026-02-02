@@ -1,0 +1,62 @@
+𝐒𝐜𝐨𝐩𝐞 𝐢𝐧 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 — 𝐋𝐞𝐱𝐢𝐜𝐚𝐥 𝐒𝐜𝐨𝐩𝐞 𝐞𝐱𝐩𝐥𝐚𝐢𝐧𝐞𝐝
+
+• Scope answers one simple question
+**Where do we look for things?**
+
+• What are we looking for?
+**Identifiers** (variables, functions, parameters)
+
+• Every identifier plays only one of two roles
+– Receiving a value (assignment)
+– Retrieving a value (lookup)
+
+• JavaScript uses **lexical scope**
+Scope is determined by **where code is written**, not how it’s executed
+
+• Scopes are like **buckets**
+Identifiers are **marbles**
+The engine sorts marbles into buckets based on where they appear in the code
+
+• This sorting does **not** happen at runtime
+It happens **before execution**
+
+• JavaScript is not just “line-by-line interpreted”
+It is **parsed and compiled first**
+
+• Proof JavaScript is compiled
+A syntax error on line 10 stops lines 1–9 from running
+That’s impossible without a prior processing step
+
+• During compilation, JavaScript:
+– Lexes and parses the code
+– Builds an Abstract Syntax Tree
+– Plans the **lexical environment** (all scopes + identifiers)
+
+• Execution happens only **after** scopes are prepared
+
+• JavaScript is a **two-pass system**
+
+1. Compile (create scopes, place identifiers)
+2. Execute (run the code)
+
+• Scope “buckets” come from:
+– Functions
+– Blocks (since ES6)
+
+• These buckets define **where identifiers belong**
+And where lookups are allowed to happen
+
+• Understanding lexical scope is foundational
+– Scope → enables Closure
+– Closure → enables Modules
+– Modules → enable scalable architecture
+
+𝐑𝐮𝐥𝐞:
+👉 Think like the JavaScript engine
+👉 Scopes are decided **before** your code runs
+
+Inspired by Kyle Simpson (You Don’t Know JS)
+
+**Follow for more JavaScript internals, scope, and closure deep dives.**
+
+#JavaScript #Scope #LexicalScope #CleanCode #Frontend #YouDontKnowJS
