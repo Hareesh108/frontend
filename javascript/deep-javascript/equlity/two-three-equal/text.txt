@@ -1,0 +1,51 @@
+𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 — `==` 𝐯𝐬 `===` (𝐓𝐡𝐞 𝐫𝐞𝐚𝐥 𝐝𝐢𝐬𝐜𝐮𝐬𝐬𝐢𝐨𝐧)
+
+• The debate is NOT “double equals is bad”
+The real question is: do you understand the types involved?
+
+• `===` avoids coercion
+It protects you when you **don’t know or can’t trust the types**
+
+• `==` allows coercion
+It can be **intentional, safe, and expressive** when types are understood
+
+• Your choice of `===` is often a trailing indicator
+It signals uncertainty about the types in the comparison
+
+• The real problem is not the operator
+The real problem is **unknown or unclear types**
+
+• Fixing the root cause (making types obvious)
+Leads to better code, fewer bugs, and clearer intent
+Regardless of which operator you use
+
+• A powerful and practical use of `==`
+`null == undefined` → true
+These two values are coercively equal **only to each other**
+
+• This allows a single “empty check”
+Treats null and undefined as the same absence of value
+Which is often more readable and intentional
+
+• Writing multiple strict checks can hurt clarity
+Explicit does not always mean clearer
+Sometimes it just adds cognitive load
+
+• Even strong critics of coercion use:
+`value == null`
+Because it’s predictable, safe, and expressive
+
+• Linters are opinions, not truth
+Use rules that help your team write better code
+Disable rules that block valid, intentional patterns
+
+𝐑𝐮𝐥𝐞:
+👉 Don’t choose `===` by habit
+👉 Choose based on **what you know about the types**
+👉 If types are unclear, fix that first
+
+Inspired by Kyle Simpson (You Don’t Know JS)
+
+**Follow for more JavaScript internals and real-world nuance.**
+
+#JavaScript #Coercion #Equality #CleanCode #Frontend #YouDontKnowJS
