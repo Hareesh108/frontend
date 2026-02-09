@@ -1,0 +1,59 @@
+𝐒𝐭𝐫𝐢𝐜𝐭 𝐌𝐨𝐝𝐞 𝐢𝐧 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 — 𝐖𝐡𝐲 𝐢𝐭 𝐦𝐚𝐭𝐭𝐞𝐫𝐬
+
+• Strict mode is **opt-in**
+Add `"use strict"` at the top of a file or function
+
+• Turning on strict mode does NOT change how code is parsed
+Scope analysis and compilation still happen first
+
+• What strict mode *does* change is **error behavior**
+
+• Without strict mode
+Assigning to an undeclared variable silently creates a global
+This is almost always a bug
+
+• With strict mode
+Using an undeclared variable throws a **ReferenceError**
+No variable → no marble → no bucket → error
+
+• ReferenceError vs TypeError
+ReferenceError → variable was never found
+TypeError → variable exists, but you used it incorrectly
+
+• Strict mode prevents accidental globals
+You **must declare** variables explicitly
+
+• This applies everywhere
+Local scope
+Global scope
+Strict mode will still throw if the variable was never declared
+
+• Strict mode exposes silent failures
+Writing to read-only properties
+Invalid assignments that previously failed quietly
+These now throw real errors
+
+• JavaScript is NOT strict by default
+Backward compatibility prevents that
+
+• But modern JavaScript assumes strict mode
+ES6 modules are always strict
+Classes are always strict
+You don’t even need to write `"use strict"` there
+
+• Strict mode is the future of the language
+More features assume it
+More errors become visible instead of silent
+
+• If you’re not using strict mode yet
+It’s time to flip the switch
+
+𝐑𝐮𝐥𝐞:
+👉 If JavaScript throws more errors, that’s a **feature**, not a bug
+👉 Strict mode helps you catch mistakes **early**
+
+Inspired by Kyle Simpson (You Don’t Know JS)
+
+**Follow for more JavaScript internals, scope, and language mechanics.**
+
+#JavaScript #StrictMode #CleanCode #Frontend #YouDontKnowJS
