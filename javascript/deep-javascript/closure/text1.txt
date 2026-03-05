@@ -1,0 +1,134 @@
+𝐂𝐥𝐨𝐬𝐮𝐫𝐞 𝐢𝐧 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 — 𝐈𝐭 𝐝𝐨𝐞𝐬𝐍’𝐭 𝐜𝐚𝐩𝐭𝐮𝐫𝐞 𝐯𝐚𝐥𝐮𝐞𝐬
+
+One of the biggest misconceptions about closure:
+
+❌ *Closure captures values*
+
+That is **incorrect**.
+
+Closure **does not capture values**.
+Closure **preserves access to variables**.
+
+---
+
+### What closure actually does
+
+When a function closes over something, it creates a **live link to the variable**, not a snapshot of its value.
+
+That means when the function runs, it reads **whatever value the variable has at that moment**.
+
+---
+
+### Example
+
+```
+let teacher = "Kyle"
+
+function myTeacher() {
+  console.log(teacher)
+}
+
+teacher = "Suzy"
+
+myTeacher()
+```
+
+Output:
+
+```
+Suzy
+```
+
+Why?
+
+Because the function **closed over the variable `teacher`**, not the value `"Kyle"`.
+
+---
+
+### The classic closure confusion
+
+```
+for (var i = 1; i <= 3; i++) {
+  setTimeout(function () {
+    console.log(i)
+  }, 0)
+}
+```
+
+Most people expect:
+
+```
+1
+2
+3
+```
+
+But the output is:
+
+```
+4
+4
+4
+```
+
+Why?
+
+Because **there is only one variable `i`**.
+
+All functions close over the **same variable**, and by the time they run, the loop is finished and `i` equals **4**.
+
+---
+
+### The correct fix
+
+Create **a new variable for each iteration**.
+
+```
+for (let i = 1; i <= 3; i++) {
+  setTimeout(function () {
+    console.log(i)
+  }, 0)
+}
+```
+
+Output:
+
+```
+1
+2
+3
+```
+
+Why?
+
+Because **`let` creates a new variable for every loop iteration**.
+
+Each closure now links to **a different variable**.
+
+---
+
+### The key insight
+
+Closure is not about values.
+
+Closure is about **variables and scope linkage**.
+
+If you want different values, you must create **different variables**.
+
+---
+
+### Mental model
+
+Closure = **function + preserved access to lexical variables**
+
+Not:
+
+Closure ≠ captured value snapshot
+
+---
+
+Inspired by Kyle Simpson — *You Don’t Know JS*
+
+Follow for more JavaScript internals and deep language mechanics.
+
+#JavaScript #Closure #LexicalScope #Frontend #YouDontKnowJS #CleanCode
