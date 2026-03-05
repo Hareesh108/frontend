@@ -1,0 +1,66 @@
+𝐂𝐥𝐨𝐬𝐮𝐫𝐞 𝐢𝐧 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 — 𝐨𝐧𝐞 𝐨𝐟 𝐭𝐡𝐞 𝐦𝐨𝐬𝐭 𝐩𝐨𝐰𝐞𝐫𝐟𝐮𝐥 𝐢𝐝𝐞𝐚𝐬 𝐢𝐧 𝐩𝐫𝐨𝐠𝐫𝐚𝐦𝐦𝐢𝐧𝐠
+
+• Closure is built on **lexical scope**
+If you don’t understand lexical scope, closure will feel confusing
+
+• Closure happens when
+A **function remembers variables from its outer scope**
+Even after that outer function has finished executing
+
+• In simple terms
+A function carries its **scope environment with it**
+
+• Closure is not just about callbacks or async code
+It appears **everywhere in JavaScript**
+
+• If you’ve written JavaScript for more than a few hours
+You have already used closure — probably without realizing it
+
+• Closure enables many core JavaScript patterns
+– Callbacks
+– Event handlers
+– Async operations
+– Module pattern
+– Data privacy
+
+• The power of closure is **state preservation**
+
+Example:
+
+function createCounter() {
+let count = 0
+
+return function () {
+count++
+return count
+}
+}
+
+const counter = createCounter()
+
+counter() // 1
+counter() // 2
+counter() // 3
+
+• The inner function still has access to `count`
+Even though `createCounter()` has finished running
+
+• That preserved access is **closure**
+
+• Closure is one of the reasons JavaScript became so powerful
+It brought functional programming ideas into a widely used language
+
+• Today almost every modern language has closures
+But JavaScript made them mainstream
+
+𝐑𝐮𝐥𝐞:
+👉 Closure = **Function + Remembered Lexical Scope**
+
+Understanding closure unlocks:
+Scope → Closure → Modules → Better architecture
+
+Inspired by Kyle Simpson (You Don’t Know JS)
+
+Follow for more JavaScript internals and language mechanics.
+
+#JavaScript #Closure #LexicalScope #Frontend #CleanCode #YouDontKnowJS
