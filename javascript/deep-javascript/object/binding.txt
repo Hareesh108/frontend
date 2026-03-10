@@ -1,0 +1,151 @@
+𝐇𝐨𝐰 `𝐭𝐡𝐢𝐬` 𝐫𝐞𝐚𝐥𝐥𝐲 𝐰𝐨𝐫𝐤𝐬 𝐢𝐧 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 — 𝐈𝐦𝐩𝐥𝐢𝐜𝐢𝐭 & 𝐄𝐱𝐩𝐥𝐢𝐜𝐢𝐭 𝐁𝐢𝐧𝐝𝐢𝐧𝐠
+
+One of the biggest misunderstandings in JavaScript is the `this` keyword.
+
+Remember the golden rule:
+
+👉 `this` is determined by **how a function is called**, not where it is written.
+
+---
+
+## 1️⃣ Implicit Binding
+
+When a function is called as a **method of an object**, `this` automatically points to that object.
+
+Example:
+
+```javascript
+const workshop = {
+  teacher: "Kyle",
+  ask(question) {
+    console.log(this.teacher, question)
+  }
+}
+
+workshop.ask("What is implicit binding?")
+```
+
+Output:
+
+```
+Kyle What is implicit binding?
+```
+
+Why?
+
+Because the **call-site** is:
+
+```
+workshop.ask(...)
+```
+
+So `this → workshop`.
+
+---
+
+## Why this is powerful
+
+You can reuse **one function across many objects**.
+
+```javascript
+function ask(question) {
+  console.log(this.teacher, question)
+}
+
+const workshop1 = { teacher: "Kyle", ask }
+const workshop2 = { teacher: "Suzy", ask }
+
+workshop1.ask("Question?")
+workshop2.ask("Another question?")
+```
+
+Same function.
+Different contexts.
+
+---
+
+## 2️⃣ Explicit Binding
+
+Sometimes we want to **control `this` directly**.
+
+JavaScript provides:
+
+• `.call()`
+• `.apply()`
+
+Example:
+
+```javascript
+ask.call(workshop1, "What is explicit binding?")
+```
+
+Now we explicitly say:
+
+```
+this → workshop1
+```
+
+---
+
+## The common problem: Losing `this`
+
+When a function is passed around, the original context can be lost.
+
+Example:
+
+```javascript
+setTimeout(workshop.ask, 100)
+```
+
+Now the call-site is no longer `workshop.ask()`.
+
+Result:
+
+```
+undefined
+```
+
+`this` is lost.
+
+---
+
+## The fix: Hard Binding
+
+Use `.bind()`.
+
+```javascript
+setTimeout(workshop.ask.bind(workshop), 100)
+```
+
+`.bind()` creates a **new function permanently bound to a specific context**.
+
+Now `this` will always be `workshop`.
+
+---
+
+## The trade-off
+
+JavaScript gives two approaches:
+
+Flexible → `this`
+Predictable → closure
+
+If you constantly use `.bind()` everywhere, you may actually want **closure instead of `this`**.
+
+---
+
+### Mental model
+
+`this` = **dynamic, flexible context**
+
+Closure = **fixed, predictable scope**
+
+Both are powerful — use the right tool.
+
+---
+
+Inspired by Kyle Simpson — *You Don’t Know JS*
+
+Follow for more JavaScript internals and language mechanics.
+
+#JavaScript #ThisKeyword #Frontend #CleanCode #YouDontKnowJS
