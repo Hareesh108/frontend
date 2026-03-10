@@ -1,0 +1,97 @@
+𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭’𝐬 𝐎𝐛𝐣𝐞𝐜𝐭 𝐒𝐲𝐬𝐭𝐞𝐦 — 𝐓𝐡𝐞 𝟑 𝐂𝐨𝐫𝐞 𝐏𝐢𝐞𝐜𝐞𝐬
+
+One of the three core pillars of JavaScript is its **object system**.
+
+But JavaScript’s object system is often misunderstood.
+
+Many developers assume JavaScript is a **class-based language**.
+
+It’s not.
+
+JavaScript is fundamentally **prototype-based**.
+
+---
+
+### The 3 building blocks of JavaScript’s object system
+
+• **Objects**
+
+Everything in JavaScript revolves around objects.
+
+Objects store data and behavior.
+
+---
+
+• **`this` keyword**
+
+`this` determines **which object a function operates on**.
+
+Understanding `this` is essential to understanding object behavior.
+
+---
+
+• **Prototypes**
+
+Prototypes enable **object-to-object linkage**.
+
+Instead of copying behavior, JavaScript objects **delegate behavior** through the prototype chain.
+
+---
+
+### Where classes fit in
+
+ES6 introduced the `class` keyword.
+
+But classes in JavaScript are **not a new system**.
+
+They are **syntactic sugar on top of prototypes**.
+
+Under the hood, the prototype system is still doing all the work.
+
+---
+
+### The common misconception
+
+Most developers use JavaScript as if it were a **class-based OO language**.
+
+This leads to thinking in terms of:
+
+Class → Instance → Inheritance
+
+But JavaScript’s natural model is different.
+
+---
+
+### The alternative model
+
+Instead of inheritance, JavaScript excels at **delegation**.
+
+Objects can simply **link to other objects**.
+
+Kyle Simpson calls this pattern:
+
+**OLOO — Objects Linked to Other Objects**
+
+---
+
+### Why this matters
+
+Understanding the real object model helps you:
+
+• Avoid class-based confusion
+• Write simpler object relationships
+• Use prototypes as they were designed
+
+JavaScript didn’t start as a class language.
+
+Classes were added later.
+
+The real foundation is **objects and prototypes**.
+
+---
+
+Inspired by Kyle Simpson — *You Don’t Know JS*
+
+Follow for more JavaScript internals and language mechanics.
+
+#JavaScript #Prototypes #Objects #OLOO #CleanCode #YouDontKnowJS
