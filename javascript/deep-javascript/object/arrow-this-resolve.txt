@@ -1,0 +1,140 @@
+𝐀𝐫𝐫𝐨𝐰 𝐅𝐮𝐧𝐜𝐭𝐢𝐨𝐧𝐬 — 𝐖𝐡𝐲 𝐭𝐡𝐢𝐬 𝐝𝐨𝐞𝐬𝐍’𝐭 𝐩𝐨𝐢𝐧𝐭 𝐭𝐨 𝐭𝐡𝐞 𝐨𝐛𝐣𝐞𝐜𝐭
+
+One of the most common mistakes in JavaScript:
+
+Assuming object braces `{}` create scope.
+
+They don’t.
+
+Objects are **not lexical scopes**.
+
+---
+
+### Example
+
+```javascript
+const workshop = {
+  teacher: "Kyle",
+
+  ask: () => {
+    console.log(this.teacher)
+  }
+}
+
+workshop.ask()
+```
+
+Many developers expect:
+
+```
+Kyle
+```
+
+But the result is:
+
+```
+undefined
+```
+
+---
+
+### Why this happens
+
+Arrow functions **do not create their own `this`**.
+
+Instead, they resolve `this` **lexically** — meaning they look for `this` in the nearest enclosing **function scope**.
+
+In this example there are only two scopes:
+
+• Global scope
+• Arrow function scope
+
+The object `{}` is **not a scope**, so it’s skipped.
+
+So the arrow function resolves `this` from the **global scope**.
+
+---
+
+### Important rule
+
+Objects ≠ scopes.
+
+Only these create lexical scope:
+
+• Functions
+• Blocks (`let`, `const`)
+• Modules
+
+Objects only hold **properties**, not **variables**.
+
+---
+
+### When arrow functions SHOULD be used
+
+Arrow functions are perfect when you want **lexical `this`**.
+
+Example:
+
+```javascript
+const workshop = {
+  teacher: "Kyle",
+
+  ask(question) {
+    setTimeout(() => {
+      console.log(this.teacher, question)
+    }, 100)
+  }
+}
+```
+
+Here the arrow function inherits `this` from `ask`.
+
+Result:
+
+```
+Kyle What is lexical this?
+```
+
+---
+
+### Why arrow functions exist
+
+Before arrow functions, developers wrote hacks like:
+
+```javascript
+var self = this
+```
+
+Arrow functions solve this problem **cleanly** with lexical `this`.
+
+---
+
+### Mental model
+
+Normal function:
+
+```
+this → determined by call site
+```
+
+Arrow function:
+
+```
+this → determined by lexical scope
+```
+
+---
+
+### Key takeaway
+
+Use arrow functions **when you want lexical `this`**.
+
+Otherwise, a regular function is usually clearer.
+
+---
+
+Inspired by Kyle Simpson — *You Don’t Know JS*
+
+Follow for more JavaScript internals and deep language mechanics.
+
+#JavaScript #ArrowFunctions #ThisKeyword #Frontend #CleanCode #YouDontKnowJS

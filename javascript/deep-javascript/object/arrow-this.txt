@@ -1,0 +1,127 @@
+𝐀𝐫𝐫𝐨𝐰 𝐅𝐮𝐧𝐜𝐭𝐢𝐨𝐧𝐬 & `𝐭𝐡𝐢𝐬` — 𝐓𝐡𝐞 𝐦𝐨𝐬𝐭 𝐦𝐢𝐬𝐮𝐧𝐝𝐞𝐫𝐬𝐭𝐨𝐨𝐝 𝐩𝐚𝐫𝐭
+
+Many developers believe:
+
+❌ Arrow functions **bind `this` to the parent**.
+
+That explanation is **not correct**.
+
+---
+
+### What actually happens
+
+Arrow functions **do not define their own `this`**.
+
+There is **no `this` binding inside an arrow function**.
+
+Instead, `this` behaves like a normal variable and is resolved **lexically**.
+
+That means JavaScript looks up the scope chain until it finds a function that **does define `this`**.
+
+---
+
+### Example
+
+```javascript
+const workshop = {
+  teacher: "Kyle",
+
+  ask(question) {
+    setTimeout(() => {
+      console.log(this.teacher, question)
+    }, 100)
+  }
+}
+
+workshop.ask("What is lexical this?")
+```
+
+Output:
+
+```
+Kyle What is lexical this?
+```
+
+Why?
+
+Because the arrow function **inherits `this` from the surrounding function** (`ask`).
+
+And `ask` was called with:
+
+```javascript
+workshop.ask(...)
+```
+
+So:
+
+```
+this → workshop
+```
+
+---
+
+### Important clarification
+
+Arrow functions are **not hard-bound functions**.
+
+They simply **don’t create a `this` binding**.
+
+The spec explicitly states:
+
+> Arrow functions do not define bindings for `this`, `arguments`, `super`, or `new.target`.
+
+---
+
+### A surprising rule
+
+You **cannot use `new` with arrow functions**.
+
+```javascript
+const Foo = () => {}
+
+new Foo()
+```
+
+Result:
+
+```
+TypeError: Foo is not a constructor
+```
+
+Because arrow functions **do not create their own `this` context**.
+
+---
+
+### Mental model
+
+Normal function:
+
+```
+this → determined by how the function is called
+```
+
+Arrow function:
+
+```
+this → determined by where the function is written
+```
+
+---
+
+### Key takeaway
+
+Arrow functions are best used for:
+
+• Callbacks
+• Preserving outer `this`
+• Functional style code
+
+But **not for methods or constructors**.
+
+---
+
+Inspired by Kyle Simpson — *You Don’t Know JS*
+
+Follow for more JavaScript internals and language mechanics.
+
+#JavaScript #ArrowFunctions #ThisKeyword #Frontend #CleanCode #YouDontKnowJS
