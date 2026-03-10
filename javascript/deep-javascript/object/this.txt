@@ -1,0 +1,128 @@
+𝐓𝐡𝐞 𝐦𝐨𝐬𝐭 𝐦𝐢𝐬𝐮𝐧𝐝𝐞𝐫𝐬𝐭𝐨𝐨𝐝 𝐤𝐞𝐲𝐰𝐨𝐫𝐝 𝐢𝐧 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 — `𝐭𝐡𝐢𝐬`
+
+Almost every JavaScript developer has been frustrated by `this`.
+
+But the confusion usually comes from one mistake:
+
+Trying to understand `this` **like it works in other languages**.
+
+JavaScript doesn’t work that way.
+
+---
+
+### What `this` actually represents
+
+`this` refers to the **execution context of a function call**.
+
+In simple terms:
+
+`this` points to **the object used when calling the function**.
+
+---
+
+### The most important rule
+
+`this` is **NOT determined by where the function is written**.
+
+`this` is determined by **how the function is called**.
+
+---
+
+### Example
+
+```javascript
+function ask(question) {
+  console.log(this.teacher, question)
+}
+
+const workshop = {
+  teacher: "Kyle"
+}
+
+ask.call(workshop, "What is 'this'?")
+```
+
+Output:
+
+```
+Kyle What is 'this'?
+```
+
+Because `.call()` explicitly sets the **context object**.
+
+---
+
+### Why `this` exists
+
+`this` allows a function to be **reused across different contexts**.
+
+The same function can operate on **different objects**.
+
+This is what makes `this` powerful.
+
+---
+
+### JavaScript has 4 ways to call a function
+
+Each determines `this` differently:
+
+1️⃣ **Default call**
+
+```
+ask()
+```
+
+2️⃣ **Implicit call (method)**
+
+```
+obj.ask()
+```
+
+3️⃣ **Explicit call**
+
+```
+ask.call(obj)
+ask.apply(obj)
+```
+
+4️⃣ **Constructor call**
+
+```
+new Ask()
+```
+
+Each of these answers the question:
+
+👉 **What should `this` point to?**
+
+---
+
+### Mental model
+
+Lexical scope asks:
+
+"Where do I look for variables?"
+
+`this` asks:
+
+**"Which object context am I running in?"**
+
+---
+
+### Key takeaway
+
+Stop asking:
+
+❌ "Where is this defined?"
+
+Start asking:
+
+✅ **"How was this function called?"**
+
+---
+
+Inspired by Kyle Simpson — *You Don’t Know JS*
+
+Follow for more JavaScript internals and language mechanics.
+
+#JavaScript #ThisKeyword #Frontend #CleanCode #YouDontKnowJS
