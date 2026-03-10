@@ -1,0 +1,118 @@
+𝐓𝐡𝐞 𝐫𝐞𝐚𝐥 𝐦𝐞𝐚𝐧𝐢𝐧𝐠 𝐨𝐟 `𝐧𝐞𝐰` 𝐢𝐧 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭
+
+Many developers think `new` is related to **classes**.
+
+It’s not.
+
+In JavaScript, `new` is simply **another way to invoke a function**.
+
+And when you use `new`, JavaScript performs **four specific steps** behind the scenes.
+
+---
+
+### What happens when you use `new`
+
+```javascript
+function Workshop(teacher) {
+  this.teacher = teacher
+}
+
+const js = new Workshop("Kyle")
+```
+
+Using `new` triggers **four operations**.
+
+---
+
+### 1️⃣ Create a new empty object
+
+JavaScript creates a brand-new object.
+
+```javascript
+{}
+```
+
+---
+
+### 2️⃣ Link the object to a prototype
+
+The new object is internally linked to:
+
+```javascript
+Workshop.prototype
+```
+
+(This is how prototype inheritance works.)
+
+---
+
+### 3️⃣ Call the function with `this`
+
+The function is invoked with:
+
+```javascript
+this → the new object
+```
+
+So inside the function:
+
+```javascript
+this.teacher = "Kyle"
+```
+
+adds a property to that new object.
+
+---
+
+### 4️⃣ Return the object automatically
+
+If the function **doesn't return its own object**, JavaScript returns `this`.
+
+So the result becomes:
+
+```javascript
+{ teacher: "Kyle" }
+```
+
+---
+
+### The surprising insight
+
+When you write:
+
+```javascript
+new Workshop()
+```
+
+It may look like the function is doing the work.
+
+But actually **`new` is doing most of the work**.
+
+The function itself could even be empty — those four steps would still happen.
+
+---
+
+### Mental model
+
+`new` =
+
+1. Create object
+2. Link prototype
+3. Bind `this`
+4. Return object
+
+---
+
+### Key takeaway
+
+`new` is **not about classes**.
+
+It’s simply a **special way to call a function with a new object context**.
+
+---
+
+Inspired by Kyle Simpson — *You Don’t Know JS*
+
+Follow for more JavaScript internals and language mechanics.
+
+#JavaScript #ThisKeyword #Prototypes #CleanCode #Frontend #YouDontKnowJS
