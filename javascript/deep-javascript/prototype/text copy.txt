@@ -1,0 +1,137 @@
+𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 𝐂𝐥𝐚𝐬𝐬𝐞𝐬 — 𝐓𝐡𝐞 𝐛𝐢𝐠𝐠𝐞𝐬𝐭 𝐦𝐞𝐧𝐭𝐚𝐥 𝐦𝐨𝐝𝐞𝐥 𝐦𝐢𝐬𝐭𝐚𝐤𝐞
+
+Many developers coming from Java, C++, or C# assume this:
+
+Objects are **copies of classes**.
+
+That’s how traditional class systems work.
+
+But JavaScript **does NOT work this way**.
+
+---
+
+### Traditional Class Model (Copy)
+
+In classical OOP:
+
+• A **class** is like a blueprint
+• An **instance** is a copy of that blueprint
+
+Example mental model:
+
+```
+Class  → copy → Instance
+```
+
+If you change the class later, existing instances **do not change**.
+
+Because the behavior was **copied during creation**.
+
+---
+
+### JavaScript Model (Link)
+
+JavaScript works completely differently.
+
+Objects are **not copies** of prototypes.
+
+They are **linked** to prototypes.
+
+```
+Object  → link → Prototype
+```
+
+This link is dynamic.
+
+When JavaScript cannot find a property on an object, it **delegates the lookup to its prototype**.
+
+---
+
+### Example
+
+```javascript
+function Workshop(teacher) {
+  this.teacher = teacher
+}
+
+Workshop.prototype.ask = function(question) {
+  console.log(this.teacher, question)
+}
+
+const w1 = new Workshop("Kyle")
+
+w1.ask("What is prototype?")
+```
+
+Here’s what really happens:
+
+```
+w1  ──► Workshop.prototype
+```
+
+If a property isn’t on `w1`, JavaScript checks the prototype.
+
+No copying involved.
+
+---
+
+### Why this distinction matters
+
+If you think **copy**, you'll expect this:
+
+Changing the prototype shouldn't affect existing objects.
+
+But in JavaScript:
+
+```javascript
+Workshop.prototype.topic = "JS"
+
+console.log(w1.topic)
+```
+
+Output:
+
+```
+JS
+```
+
+Because objects are **linked**, not copied.
+
+---
+
+### Mental model shift
+
+Wrong model:
+
+```
+class → copy → object
+```
+
+Correct JavaScript model:
+
+```
+object → delegation → prototype
+```
+
+---
+
+### Key takeaway
+
+JavaScript is **not a classical class language**.
+
+It is a **prototype delegation language**.
+
+Understanding this removes a huge amount of confusion around:
+
+• prototypes
+• inheritance
+• classes
+• `this`
+
+---
+
+Inspired by Kyle Simpson — *You Don’t Know JS*
+
+Follow for more deep dives into JavaScript internals.
+
+#JavaScript #Prototypes #OOP #Frontend #CleanCode #YouDontKnowJS
